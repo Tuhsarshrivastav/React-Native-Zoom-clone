@@ -11,13 +11,15 @@ const items = [
 const MenuButtons = () => {
   return (
     <View style={styles.container}>
-      {items.map((item, index) => (
+      {items.map((item) => (
         <>
-          <View key={index} style={styles.buttonContainer}>
+          <View key={item.id} style={styles.buttonContainer}>
             <TouchableOpacity
               style={{
                 ...styles.button,
-                backgroundColor: item.customColor ? item.customColor : "#0470dc",
+                backgroundColor: item.customColor
+                  ? item.customColor
+                  : "#0470dc",
               }}
             >
               <FontAwesome name={item.name} size={23} color={"#efefef"} />
