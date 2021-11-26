@@ -1,20 +1,20 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+
+import { createStackNavigator } from "@react-navigation/native-stack";
 import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Home from "./screens/Home";
-import MeetingRoom from "./screens/Meetingscreen";
-const Navigation = ({ navigation }) => {
-  const Stack = createNativeStackNavigator();
+import Home from "./Screens/Home";
+import MeetingRoom from "./Screens/MeetingRoom";
+
+function Navigation() {
+  const Stack = createStackNavigator();
+
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName={Home}>
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{
-            headerShown: false,
-          }}
+          options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Room"
@@ -23,7 +23,6 @@ const Navigation = ({ navigation }) => {
             title: "Start a Meeting",
             headerStyle: {
               backgroundColor: "#1c1c1c",
-              shadowOpacity: 0,
             },
             headerTintColor: "white",
           }}
@@ -31,8 +30,6 @@ const Navigation = ({ navigation }) => {
       </Stack.Navigator>
     </NavigationContainer>
   );
-};
+}
 
 export default Navigation;
-
-const styles = StyleSheet.create({});
